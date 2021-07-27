@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    180000,       3490]
-NotebookOptionsPosition[    179650,       3475]
-NotebookOutlinePosition[    180015,       3491]
-CellTagsIndexPosition[    179972,       3488]
+NotebookDataLength[    180217,       3491]
+NotebookOptionsPosition[    179866,       3476]
+NotebookOutlinePosition[    180231,       3492]
+CellTagsIndexPosition[    180188,       3489]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,11 +25,11 @@ Cell[BoxData[{
   RowBox[{
    RowBox[{"DefineSpace", "::", "usage"}], "=", "\[IndentingNewLine]", 
    "\"\<DefineSpace[\!\(\*StyleBox[\"name\",FontSlant->\"Italic\"]\), \
-\!\(\*StyleBox[\"dim\",FontSlant->\"Italic\"]\)] defines a space of \
-dimenstion \!\(\*StyleBox[\"dim\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
+\!\(\*StyleBox[\"dim\",FontSlant->\"Italic\"]\)] defines a space of dimension \
+\!\(\*StyleBox[\"dim\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
 \",FontSlant->\"Italic\"]\)with a string \
 \!\(\*StyleBox[\"name\",FontSlant->\"Italic\"]\) on which tensor calculations \
-will be perfromed. The optional variables are:\n\t\
+will be performed. The optional variables are:\n\t\
 \!\(\*StyleBox[\"index\",FontSlant->\"Italic\"]\) - a list of indices on this \
 space or a string prefix to generate names automatically, if missing \
 \!\(\*StyleBox[\"name\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
@@ -57,7 +57,7 @@ corresponding lines in the package file.\>\""}],
   RowBox[{
    RowBox[{"GetArray", "::", "usage"}], "=", "\[IndentingNewLine]", 
    "\"\<GetArray[\!\(\*StyleBox[\"expr\",FontSlant->\"Italic\"]\)] \
-substitutes arrays into tensor variables and performes contractions and math \
+substitutes arrays into tensor variables and performs contractions and math \
 operations. The optional variables are:\n\t\
 \!\(\*StyleBox[\"indices\",FontSlant->\"Italic\"]\) - a list of indices in \
 which order the tensor should be transposed. If omitted indices are taken to \
@@ -95,8 +95,8 @@ tensor derivative for the space in which index \
 \[PlusMinus]\", \
 \"OperatorCharacter\"]\)\!\(\*StyleBox[\"i\",FontSlant->\"Italic\"]\)\!\(\*\
 StyleBox[\"]\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
-\",FontSlant->\"Italic\"]\)is also defined for a dervative in the space \
-\!\(\*StyleBox[\"space\",FontSlant->\"Italic\"]\), which can be used with any \
+\",FontSlant->\"Italic\"]\)is also defined for a derivative in the space \!\(\
+\*StyleBox[\"space\",FontSlant->\"Italic\"]\), which can be used with any \
 \!\(\*StyleBox[\"i\",FontSlant->\"Italic\"]\).\>\""}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -105,9 +105,9 @@ StyleBox[\"]\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
    "\"\<TensorPlus[\!\(\*StyleBox[\"args\",FontSlant->\"Italic\"]\)] is used \
 to add matrix-valued tensors (for example, the set of Dirac matrices \
 \[Gamma][\[Mu]]) with explicit lists (for example, IdentityMatrix[4]). It is \
-equivalent to Plus[] in most cases, except it prevents the automatical \
+equivalent to Plus[] in most cases, except it prevents the automatic \
 threading over lists. For convenience this function overrides the built-in \
-CircleTimes function.\>\""}], "\[IndentingNewLine]", 
+CirclePlus function.\>\""}], "\[IndentingNewLine]", 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -122,21 +122,19 @@ the built-in CircleTimes function.\>\""}],
   RowBox[{
    RowBox[{"WedgeProduct", "::", "usage"}], "=", "\[IndentingNewLine]", 
    "\"\<WedgeProduct[\!\(\*StyleBox[\"args\",FontSlant->\"Italic\"]\)] \
-represents the wedge product of basis forms. It expnds \
-\!\(\*StyleBox[\"args\",FontSlant->\"Italic\"]\) automatically until a sum of \
-basis wedge products is achieved. For convenience this function overrides the \
-built-in Wedge function.\>\""}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+represents the wedge product of basis forms. It expands \!\(\*StyleBox[\"args\
+\",FontSlant->\"Italic\"]\) automatically until a sum of basis wedge products \
+is achieved. For convenience this function overrides the built-in Wedge \
+function.\>\""}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"ExteriorDerivative", "::", "usage"}], "=", "\[IndentingNewLine]", 
    "\"\<ExteriorDerivative[\!\(\*StyleBox[\"space\",FontSlant->\"Italic\"]\)][\
 \!\(\*StyleBox[\"expr\",FontSlant->\"Italic\"]\)] gives the exterior \
 derivative of \!\(\*StyleBox[\"expr\",FontSlant->\"Italic\"]\) in \
-\!\(\*StyleBox[\"space\",FontSlant->\"Italic\"]\). If \
-\!\(\*StyleBox[\"space\",FontSlant->\"Italic\"]\) is a Sequence of spaces, \
-the exterior derivative is taken in their product space. If \
-\!\(\*StyleBox[\"spaces\",FontSlant->\"Italic\"]\) is empty, the exterior \
+\!\(\*StyleBox[\"space\",FontSlant->\"Italic\"]\). If latter is a Sequence of \
+spaces, the exterior derivative is taken in their product space. If \
+\!\(\*StyleBox[\"space\",FontSlant->\"Italic\"]\) is empty, the exterior \
 derivative is taken in the product space of all defined spaces.\>\""}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -2210,7 +2208,7 @@ basises are multiplied successively starting from the first position.\>\""}],
        RowBox[{"Length", "[", "w", "]"}]}], "}"}]}], "]"}]}], 
   "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"End", "[", "]"}], "\[IndentingNewLine]"}], "\n", 
+  RowBox[{"End", "[", "]"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{"EndPackage", "[", "]"}], "\[IndentingNewLine]"}], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.783771984099757*^9, 3.783771992511798*^9}, {
@@ -3469,8 +3467,11 @@ basises are multiplied successively starting from the first position.\>\""}],
    3.835523732042934*^9}, {3.835757927389963*^9, 3.835757979393852*^9}, {
    3.835769569165615*^9, 3.835769569965788*^9}, {3.836103742389934*^9, 
    3.836103743162146*^9}, {3.836103796498946*^9, 3.836103799939084*^9}, {
-   3.836103832805188*^9, 
-   3.836103873015925*^9}},ExpressionUUID->"3b233b55-4636-484f-9c9c-\
+   3.836103832805188*^9, 3.836103873015925*^9}, 3.836379399194874*^9, {
+   3.8363794360518293`*^9, 3.8363794367303057`*^9}, 3.8363795024890423`*^9, 
+   3.836379756144307*^9, {3.836379903117917*^9, 3.836379903236765*^9}, 
+   3.836379940323319*^9, 3.836380406753385*^9, {3.836380479975772*^9, 
+   3.8363804869433613`*^9}},ExpressionUUID->"3b233b55-4636-484f-9c9c-\
 5fbf90bee5dc"]
 },
 AutoGeneratedPackage->Automatic,
@@ -3490,7 +3491,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 179088, 3453, 8927, "Input",ExpressionUUID->"3b233b55-4636-484f-9c9c-5fbf90bee5dc",
+Cell[558, 20, 179304, 3454, 10220, "Input",ExpressionUUID->"3b233b55-4636-484f-9c9c-5fbf90bee5dc",
  InitializationCell->True]
 }
 ]

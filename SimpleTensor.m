@@ -24,10 +24,10 @@ BeginPackage["SimpleTensor`"]
 DefineSpace::usage=
 "DefineSpace[\!\(\*
 StyleBox[\"name\",\nFontSlant->\"Italic\"]\), \!\(\*
-StyleBox[\"dim\",\nFontSlant->\"Italic\"]\)] defines a space of dimenstion \!\(\*
+StyleBox[\"dim\",\nFontSlant->\"Italic\"]\)] defines a space of dimension \!\(\*
 StyleBox[\"dim\",\nFontSlant->\"Italic\"]\)\!\(\*
 StyleBox[\" \",\nFontSlant->\"Italic\"]\)with a string \!\(\*
-StyleBox[\"name\",\nFontSlant->\"Italic\"]\) on which tensor calculations will be perfromed. The optional variables are:
+StyleBox[\"name\",\nFontSlant->\"Italic\"]\) on which tensor calculations will be performed. The optional variables are:
 	\!\(\*
 StyleBox[\"index\",\nFontSlant->\"Italic\"]\) - a list of indices on this space or a string prefix to generate names automatically, if missing \!\(\*
 StyleBox[\"name\",\nFontSlant->\"Italic\"]\)\!\(\*
@@ -52,7 +52,7 @@ StyleBox[\"]\",\nFontSlant->\"Italic\"]\). For convenience this function overrid
 
 GetArray::usage=
 "GetArray[\!\(\*
-StyleBox[\"expr\",\nFontSlant->\"Italic\"]\)] substitutes arrays into tensor variables and performes contractions and math operations. The optional variables are:
+StyleBox[\"expr\",\nFontSlant->\"Italic\"]\)] substitutes arrays into tensor variables and performs contractions and math operations. The optional variables are:
 	\!\(\*
 StyleBox[\"indices\",\nFontSlant->\"Italic\"]\) - a list of indices in which order the tensor should be transposed. If omitted indices are taken to be in standard order, i.e., the one returned by the standard Sort[] function."
 
@@ -85,13 +85,13 @@ StyleBox[\"space\",\nFontSlant->\"Italic\"]\)[\!\(\*
 StyleBox[\"\[PlusMinus]\", \"OperatorCharacter\"]\)\!\(\*
 StyleBox[\"i\",\nFontSlant->\"Italic\"]\)\!\(\*
 StyleBox[\"]\",\nFontSlant->\"Italic\"]\)\!\(\*
-StyleBox[\" \",\nFontSlant->\"Italic\"]\)is also defined for a dervative in the space \!\(\*
+StyleBox[\" \",\nFontSlant->\"Italic\"]\)is also defined for a derivative in the space \!\(\*
 StyleBox[\"space\",\nFontSlant->\"Italic\"]\), which can be used with any \!\(\*
 StyleBox[\"i\",\nFontSlant->\"Italic\"]\)."
 
 TensorPlus::usage=
 "TensorPlus[\!\(\*
-StyleBox[\"args\",\nFontSlant->\"Italic\"]\)] is used to add matrix-valued tensors (for example, the set of Dirac matrices \[Gamma][\[Mu]]) with explicit lists (for example, IdentityMatrix[4]). It is equivalent to Plus[] in most cases, except it prevents the automatical threading over lists. For convenience this function overrides the built-in CircleTimes function."
+StyleBox[\"args\",\nFontSlant->\"Italic\"]\)] is used to add matrix-valued tensors (for example, the set of Dirac matrices \[Gamma][\[Mu]]) with explicit lists (for example, IdentityMatrix[4]). It is equivalent to Plus[] in most cases, except it prevents the automatic threading over lists. For convenience this function overrides the built-in CirclePlus function."
 
 
 DirectProduct::usage=
@@ -101,7 +101,7 @@ StyleBox[\"args\",\nFontSlant->\"Italic\"]\) automatically until a sum of basis 
 
 WedgeProduct::usage=
 "WedgeProduct[\!\(\*
-StyleBox[\"args\",\nFontSlant->\"Italic\"]\)] represents the wedge product of basis forms. It expnds \!\(\*
+StyleBox[\"args\",\nFontSlant->\"Italic\"]\)] represents the wedge product of basis forms. It expands \!\(\*
 StyleBox[\"args\",\nFontSlant->\"Italic\"]\) automatically until a sum of basis wedge products is achieved. For convenience this function overrides the built-in Wedge function."
 
 ExteriorDerivative::usage=
@@ -109,9 +109,8 @@ ExteriorDerivative::usage=
 StyleBox[\"space\",\nFontSlant->\"Italic\"]\)][\!\(\*
 StyleBox[\"expr\",\nFontSlant->\"Italic\"]\)] gives the exterior derivative of \!\(\*
 StyleBox[\"expr\",\nFontSlant->\"Italic\"]\) in \!\(\*
-StyleBox[\"space\",\nFontSlant->\"Italic\"]\). If \!\(\*
-StyleBox[\"space\",\nFontSlant->\"Italic\"]\) is a Sequence of spaces, the exterior derivative is taken in their product space. If \!\(\*
-StyleBox[\"spaces\",\nFontSlant->\"Italic\"]\) is empty, the exterior derivative is taken in the product space of all defined spaces."
+StyleBox[\"space\",\nFontSlant->\"Italic\"]\). If latter is a Sequence of spaces, the exterior derivative is taken in their product space. If \!\(\*
+StyleBox[\"space\",\nFontSlant->\"Italic\"]\) is empty, the exterior derivative is taken in the product space of all defined spaces."
 
 InteriorProduct::usage=
 "InteriorProduct[\!\(\*
