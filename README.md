@@ -12,6 +12,7 @@ However, in my opinion, they all suffer from one or more of the following flows:
 - The package is hard to master (or even to grasp), as it contains dozens or even hundreds public functions;
 - The package is focused primarily at the General Relativity computations;
 - The package is hard to modify for your personal needs.
+
 As the name suggests, SimpleTensor is intended to remedy these flows by being up-to-date, concise (only 11 public functions), all-purpose, and well-documented (hackable).
 It also provides basis for elementary in-basis differential geometric computations.
 On the other hand, some sacrifices had to be made in order to achieve these goals and so SimpleTensor loses on speed and number of readily available functions for GR to its competitors.
