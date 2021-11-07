@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    180217,       3491]
-NotebookOptionsPosition[    179866,       3476]
-NotebookOutlinePosition[    180231,       3492]
-CellTagsIndexPosition[    180188,       3489]
+NotebookDataLength[    180898,       3501]
+NotebookOptionsPosition[    180548,       3486]
+NotebookOutlinePosition[    180912,       3502]
+CellTagsIndexPosition[    180869,       3499]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28,15 +28,14 @@ Cell[BoxData[{
 \!\(\*StyleBox[\"dim\",FontSlant->\"Italic\"]\)] defines a space of dimension \
 \!\(\*StyleBox[\"dim\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
 \",FontSlant->\"Italic\"]\)with a string \
-\!\(\*StyleBox[\"name\",FontSlant->\"Italic\"]\) on which tensor calculations \
-will be performed. The optional variables are:\n\t\
-\!\(\*StyleBox[\"index\",FontSlant->\"Italic\"]\) - a list of indices on this \
-space or a string prefix to generate names automatically, if missing \
-\!\(\*StyleBox[\"name\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
-\",FontSlant->\"Italic\"]\)is used as a prefix;\n\t\
+\!\(\*StyleBox[\"name\",FontSlant->\"Italic\"]\) on which tensors live. The \
+optional variables are:\n\t\!\(\*StyleBox[\"index\",FontSlant->\"Italic\"]\) \
+- a list of indices on this space or a string prefix to generate names \
+automatically; if missing, \!\(\*StyleBox[\"name\",FontSlant->\"Italic\"]\)\!\
+\(\*StyleBox[\" \",FontSlant->\"Italic\"]\)is used as a prefix.\n\t\
 \!\(\*StyleBox[\"coord\",FontSlant->\"Italic\"]\) - a list of coordinates on \
-this space or a string prefix to generate names automatically, if missing \
-\!\(\*StyleBox[\"name\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
+this space or a string prefix to generate names automatically; if missing, \!\
+\(\*StyleBox[\"name\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
 \",FontSlant->\"Italic\"]\)is used as a prefix.\>\""}], 
   "\n"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -57,12 +56,14 @@ corresponding lines in the package file.\>\""}],
   RowBox[{
    RowBox[{"GetArray", "::", "usage"}], "=", "\[IndentingNewLine]", 
    "\"\<GetArray[\!\(\*StyleBox[\"expr\",FontSlant->\"Italic\"]\)] \
-substitutes arrays into tensor variables and performs contractions and math \
+substitutes tensor variables with arrays and performs contractions and math \
 operations. The optional variables are:\n\t\
 \!\(\*StyleBox[\"indices\",FontSlant->\"Italic\"]\) - a list of indices in \
-which order the tensor should be transposed. If omitted indices are taken to \
-be in standard order, i.e., the one returned by the standard Sort[] function.\
-\>\""}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+which order the tensor should be transposed. If omitted \
+\!\(\*StyleBox[\"indices\",FontSlant->\"Italic\"]\) are taken to be the free \
+indices in \!\(\*StyleBox[\"expr\",FontSlant->\"Italic\"]\) in standard \
+order, i.e., the one returned by the standard Sort[] function.\>\""}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"metric", "::", "usage"}], "=", "\[IndentingNewLine]", 
@@ -666,12 +667,23 @@ basises are multiplied successively starting from the first position.\>\""}],
           "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
        RowBox[{"If", "[", 
         RowBox[{
-         RowBox[{
-          RowBox[{"head", "===", "basis"}], "||", 
-          RowBox[{"head", "===", "\[Eth]"}]}], ",", 
+         RowBox[{"head", "===", "basis"}], ",", 
          RowBox[{
           RowBox[{"Print", "[", 
-           RowBox[{"\"\<Cannot modify the built-in tensor: \>\"", ",", " ", 
+           RowBox[{"\"\<Cannot set the built-in tensor: \>\"", ",", " ", 
+            RowBox[{"head", "[", "ind", "]"}]}], "]"}], ";", 
+          RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+       
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"StringStartsQ", "[", 
+          RowBox[{
+           RowBox[{"SymbolName", "[", "head", "]"}], ",", "\"\<\[Eth]\>\""}], 
+          "]"}], ",", 
+         RowBox[{
+          RowBox[{"Print", "[", 
+           RowBox[{
+           "\"\<Cannot set tensor starting with \[Eth]: \>\"", ",", " ", 
             RowBox[{"head", "[", "ind", "]"}]}], "]"}], ";", 
           RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
        
@@ -1462,19 +1474,11 @@ basises are multiplied successively starting from the first position.\>\""}],
              RowBox[{"Tensor", "[", 
               StyleBox[
                RowBox[{"ind", ",", " ", "arr"}],
-               FontSlant->"Italic"], "]"}], " ", "into", " ", 
-             RowBox[{
-              StyleBox[
-               RowBox[{"`", 
-                StyleBox["arr",
-                 FontSlant->"Italic"]}]], 
-              StyleBox["[",
-               FontSlant->"Italic"], 
-              StyleBox[
-               RowBox[{"[", "ind", "]"}],
-               FontSlant->"Italic"], 
-              StyleBox["]",
-               FontSlant->"Italic"]}], "`"}], "*)"}], "\[IndentingNewLine]", 
+               FontSlant->"Italic"], "]"}], " ", "into", " ", "`", 
+             StyleBox[
+              RowBox[{"arr", "[", 
+               RowBox[{"[", "ind", "]"}], "]"}],
+              FontSlant->"Italic"], "`"}], "*)"}], "\[IndentingNewLine]", 
            RowBox[{"tmp", "=", 
             RowBox[{"tmp", "/.", 
              RowBox[{
@@ -3471,12 +3475,18 @@ basises are multiplied successively starting from the first position.\>\""}],
    3.8363794360518293`*^9, 3.8363794367303057`*^9}, 3.8363795024890423`*^9, 
    3.836379756144307*^9, {3.836379903117917*^9, 3.836379903236765*^9}, 
    3.836379940323319*^9, 3.836380406753385*^9, {3.836380479975772*^9, 
-   3.8363804869433613`*^9}},ExpressionUUID->"3b233b55-4636-484f-9c9c-\
+   3.8363804869433613`*^9}, {3.844226669190896*^9, 3.84422668497473*^9}, {
+   3.8442395695989943`*^9, 3.844239582438631*^9}, {3.8442396513208437`*^9, 
+   3.844239665449916*^9}, {3.844239760725512*^9, 3.844239795833708*^9}, {
+   3.8442399443698587`*^9, 3.8442399614902077`*^9}, {3.845262828770987*^9, 
+   3.8452628401852837`*^9}, {3.845262910253687*^9, 3.8452629113786917`*^9}, {
+   3.8452631509130898`*^9, 
+   3.845263154556967*^9}},ExpressionUUID->"3b233b55-4636-484f-9c9c-\
 5fbf90bee5dc"]
 },
 AutoGeneratedPackage->Automatic,
-WindowSize->{1920, 1062},
-WindowMargins->{{0, Automatic}, {-2, Automatic}},
+WindowSize->{955, 1062},
+WindowMargins->{{Automatic, 0}, {-2, Automatic}},
 FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->"Dark.nb"
 ]
@@ -3491,7 +3501,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 179304, 3454, 10220, "Input",ExpressionUUID->"3b233b55-4636-484f-9c9c-5fbf90bee5dc",
+Cell[558, 20, 179986, 3464, 10266, "Input",ExpressionUUID->"3b233b55-4636-484f-9c9c-5fbf90bee5dc",
  InitializationCell->True]
 }
 ]

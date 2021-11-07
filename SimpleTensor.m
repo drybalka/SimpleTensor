@@ -27,13 +27,13 @@ StyleBox[\"name\",\nFontSlant->\"Italic\"]\), \!\(\*
 StyleBox[\"dim\",\nFontSlant->\"Italic\"]\)] defines a space of dimension \!\(\*
 StyleBox[\"dim\",\nFontSlant->\"Italic\"]\)\!\(\*
 StyleBox[\" \",\nFontSlant->\"Italic\"]\)with a string \!\(\*
-StyleBox[\"name\",\nFontSlant->\"Italic\"]\) on which tensor calculations will be performed. The optional variables are:
+StyleBox[\"name\",\nFontSlant->\"Italic\"]\) on which tensors live. The optional variables are:
 	\!\(\*
-StyleBox[\"index\",\nFontSlant->\"Italic\"]\) - a list of indices on this space or a string prefix to generate names automatically, if missing \!\(\*
+StyleBox[\"index\",\nFontSlant->\"Italic\"]\) - a list of indices on this space or a string prefix to generate names automatically; if missing, \!\(\*
 StyleBox[\"name\",\nFontSlant->\"Italic\"]\)\!\(\*
-StyleBox[\" \",\nFontSlant->\"Italic\"]\)is used as a prefix;
+StyleBox[\" \",\nFontSlant->\"Italic\"]\)is used as a prefix.
 	\!\(\*
-StyleBox[\"coord\",\nFontSlant->\"Italic\"]\) - a list of coordinates on this space or a string prefix to generate names automatically, if missing \!\(\*
+StyleBox[\"coord\",\nFontSlant->\"Italic\"]\) - a list of coordinates on this space or a string prefix to generate names automatically; if missing, \!\(\*
 StyleBox[\"name\",\nFontSlant->\"Italic\"]\)\!\(\*
 StyleBox[\" \",\nFontSlant->\"Italic\"]\)is used as a prefix."
 
@@ -52,9 +52,11 @@ StyleBox[\"]\",\nFontSlant->\"Italic\"]\). For convenience this function overrid
 
 GetArray::usage=
 "GetArray[\!\(\*
-StyleBox[\"expr\",\nFontSlant->\"Italic\"]\)] substitutes arrays into tensor variables and performs contractions and math operations. The optional variables are:
+StyleBox[\"expr\",\nFontSlant->\"Italic\"]\)] substitutes tensor variables with arrays and performs contractions and math operations. The optional variables are:
 	\!\(\*
-StyleBox[\"indices\",\nFontSlant->\"Italic\"]\) - a list of indices in which order the tensor should be transposed. If omitted indices are taken to be in standard order, i.e., the one returned by the standard Sort[] function."
+StyleBox[\"indices\",\nFontSlant->\"Italic\"]\) - a list of indices in which order the tensor should be transposed. If omitted \!\(\*
+StyleBox[\"indices\",\nFontSlant->\"Italic\"]\) are taken to be the free indices in \!\(\*
+StyleBox[\"expr\",\nFontSlant->\"Italic\"]\) in standard order, i.e., the one returned by the standard Sort[] function."
 
 metric::usage=
 "metric[-\!\(\*
@@ -213,7 +215,8 @@ AppendTo[TensorValues,ToExpression["\[Eth]"<>space][-space]->(\!\(
 SetTensor[head_Symbol[ind__?IndexQ],array_List]:=
 Module[{},
 If[$Verbose,Print["Setting tensor: ",head[ind]," to have the following array: ", array]];
-If[head===basis||head===\[Eth],Print["Cannot modify the built-in tensor: ", head[ind]];Abort[]];
+If[head===basis,Print["Cannot set the built-in tensor: ", head[ind]];Abort[]];
+If[StringStartsQ[SymbolName[head],"\[Eth]"],Print["Cannot set tensor starting with \[Eth]: ", head[ind]];Abort[]];
 If[IndexDim/@{ind}!=Take[Dimensions[array],Length[{ind}]],
 Print["Invalid dimension of array ",head[ind],": ",Dimensions[array]," given vs ", IndexDim[#]&/@{ind}, " required."];Abort[]
 ];
