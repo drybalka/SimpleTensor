@@ -1,6 +1,9 @@
 # SimpleTensor
 User-friendly Mathematica package for elementary tensor and differential geometric calculations.
 
+### Supporting publication
+The detailed description and example session file with comments can be found in the [supporting publication](https://arxiv.org/pdf/2111.06718) on arxiv.
+
 ### Motivation
 Wolfram Mathematica is a popular symbolic computation program useful among other applications in physics computations.
 Standard Mathematica functions fulfill almost all mathematical needs of typical undergraduate level courses.
